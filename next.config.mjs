@@ -1,22 +1,33 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Disable SWC and use Babel instead
+  // Use Babel instead of SWC
   swcMinify: false,
-  compiler: {
-    // Remove SWC-specific options that might cause issues
-  },
+  
   eslint: {
     ignoreDuringBuilds: true,
   },
+  
   images: {
     unoptimized: true
   },
+  
   // Ensure mobile compatibility
   experimental: {
     esmExternals: false,
-    // Disable SWC in experimental features
-    forceSwcTransforms: false
-  }
+  },
+  
+  // Webpack configuration to handle potential issues
+  webpack: (config, { isServer }) => {
+    // Fallback for modules that might not be available
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false,
+    };
+    
+    return config;
+  },
 };
 
 export default nextConfig;
