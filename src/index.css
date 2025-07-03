@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'mainFont';
-    src: url(../../public/font/NeueHaasDisplay-Roman.ttf);
+    src: url('/font/NeueHaasDisplay-Roman.ttf');
     font-display: swap;
 }
 
@@ -103,17 +103,6 @@ body[theme="light"] .section {
     .text-responsive-base {
         @apply text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl;
     }
-}
-
-/* Mobile fixes */
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 /* Hide cursor on mobile and tablet devices */

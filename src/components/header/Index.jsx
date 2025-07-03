@@ -5,17 +5,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { opacity, rotate, rotate2 } from './anime';
 import { useState } from 'react';
 import Nav from './nav/Index';
-import Link from "next/link";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
     const [isActive, setIsActive] = useState(false);
+    const location = useLocation();
+    const isRomanian = location.pathname.startsWith('/ro');
 
   return (
     <div className='header section fixed top-0 left-0 w-full px-[5vw] py-[4vw] sm:px-[2.5vw] z-[999] cursor-pointer 
     sm:pt-[2vw]'>
         <div className='w-full flex items-center justify-between'>
             <div>
-                <Link href="/"> 
+                <Link to={isRomanian ? "/ro" : "/"}> 
                     <h2 className='text-[6vw] font-[mainFont] tracking-wide sm:text-[1.3vw] font-semibold
                      leading-[2vw]'>painydev</h2>
                 </Link>

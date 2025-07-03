@@ -2,23 +2,23 @@ import { useGSAP } from '@gsap/react';
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap';
 import styles from './Style.module.css'
-import { usePathname, useRouter } from 'next/navigation';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Footer() {
   const footerStyle = useRef();
-  const pathname = usePathname();
-  const router = useRouter();
-  const isRomanian = pathname.startsWith('/ro');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isRomanian = location.pathname.startsWith('/ro');
 
   const switchLanguage = () => {
     if (isRomanian) {
       // Switch to English - remove /ro prefix
-      const englishPath = pathname.replace('/ro', '') || '/';
-      router.push(englishPath);
+      const englishPath = location.pathname.replace('/ro', '') || '/';
+      navigate(englishPath);
     } else {
       // Switch to Romanian - add /ro prefix
-      const romanianPath = pathname === '/' ? '/ro' : `/ro${pathname}`;
-      router.push(romanianPath);
+      const romanianPath = location.pathname === '/' ? '/ro' : `/ro${location.pathname}`;
+      navigate(romanianPath);
     }
   };
 
