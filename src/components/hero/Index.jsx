@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react'
 import Header from '../header/Index'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
-import Image from 'next/image'
 import heroImg from '../../../public/image/svg.svg'
 import landingImg from '../../../public/image/svg1.svg'
-import { usePathname } from 'next/navigation'
+import { useLocation } from 'react-router-dom'
 
 function Hero() {
   const heroTextRef = useRef(null)
-  const pathname = usePathname()
+  const location = useLocation()
+  const pathname = location.pathname
   const isRomanian = pathname.startsWith('/ro')
 
   return (
@@ -51,7 +51,7 @@ function Hero() {
                 {isRomanian ? 'imersive' : 'immersives'}
               </h1>
               <span className='specialTxt ml-2'>
-                <Image 
+                <img 
                   src={heroImg} 
                   width={24} 
                   height={24} 
@@ -81,7 +81,8 @@ function Hero() {
 }
 
 function LandingPage() {
-  const pathname = usePathname()
+  const location = useLocation()
+  const pathname = location.pathname
   const isRomanian = pathname.startsWith('/ro')
 
   return (
@@ -126,7 +127,7 @@ function LandingPage() {
                   {isRomanian ? 'imersive' : 'immersives'}
                 </h1>
                 <span className='specialTxt ml-2'>
-                  <Image 
+                  <img 
                     src={landingImg} 
                     width={24} 
                     height={24} 

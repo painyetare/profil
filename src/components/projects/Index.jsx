@@ -5,7 +5,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import { Power3 } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import style from './style.module.css'
-import Image from 'next/image';
 import img from '../../../public/image/svg.svg'
 import { LuArrowUpRight } from "react-icons/lu";
 
@@ -180,7 +179,7 @@ function Projects() {
                                 <div className=' flex flex-col sm:items-end gap-[1vw] '>
                                     <div className='projectrightDiv flex items-center gap-[.4vw] text-[1vw]'>
                                         <div className={`pjtRttxt ${style.pjtRttxt} overflow-hidden`}><h3>{item.id1}</h3></div>
-                                        <div className={`pjtRttxt ${style.pjtRttxt} overflow-hidden`}> <Image src={img} width={16} height={32} alt="image" className={`spcArr ${style.spcArr}`}/> </div>
+                                        <div className={`pjtRttxt ${style.pjtRttxt} overflow-hidden`}> <img src={img} width={16} height={32} alt="image" className={`spcArr ${style.spcArr}`}/> </div>
                                         <div className={`pjtRttxt ${style.pjtRttxt} overflow-hidden`}><h3>{item.id2}</h3></div>
                                     </div>
                                     <div className='projectDownDiv hidden sm:flex items-center gap-2 whitespace-nowrap'>

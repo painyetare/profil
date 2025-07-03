@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import gsap from 'gsap';
 import { Power4} from 'gsap/gsap-core';
 import style from './Style.module.css'
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 function Social() {
@@ -22,7 +22,7 @@ function Social() {
             {data.map((item, index) => {
                 return (
                     <div key={index}>                    
-                        <Link  href={item.socLink} target='_blank' >
+                        <a href={item.socLink} target='_blank' rel="noopener noreferrer">
                         <div className={`socialDiv ${style.socialDiv} w-full py-[6vw] sm:py-[1.5vw] overflow-hidden flex items-center justify-center relative hover:cursor-pointer`}>
                             <div className={`overlay ${style.overlay} w-[100%] h-[100%] flex items-center justify-center  absolute left-0 bg-[#222222]`}>
                                 <motion.div 
@@ -78,7 +78,7 @@ function Social() {
                             </div>
                             <h2 className='text-[4.5sm:vw] sm:text-[1.7vw] tracking-wide text-[#828282] font-semibold'>{item.title}</h2>                          
                         </div>
-                    </Link>
+                    </a>
                 </div>
    
                 )

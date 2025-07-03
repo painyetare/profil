@@ -2,16 +2,17 @@
 
 import gsap from 'gsap'
 import React, { useEffect, useRef } from 'react'
-import styles from './style.mosule.css'
+import styles from './style.module.css'
 import { useGSAP } from '@gsap/react'
 import { opacity } from '../header/anime';
-import { usePathname } from 'next/navigation'
+import { useLocation } from 'react-router-dom'
 
 function About() {
   const serviceRef = useRef();
   const serviceRef2 = useRef();
   const serviceRef3 = useRef();
-  const pathname = usePathname()
+  const location = useLocation()
+  const pathname = location.pathname
   const isRomanian = pathname.startsWith('/ro')
 
   useGSAP(() => {

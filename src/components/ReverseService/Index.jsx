@@ -1,15 +1,16 @@
 import React, { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import styles from './style.module.css'
+import styles from './Style.module.css'
 import { useGSAP } from '@gsap/react'
-import { usePathname } from 'next/navigation'
+import { useLocation } from 'react-router-dom'
 
 function ReverseService() {
     const serviceRef = useRef(null)
     const serviceRef2 = useRef(null)
     const serviceRef3 = useRef(null)
-    const pathname = usePathname()
+    const location = useLocation()
+    const pathname = location.pathname
     const isRomanian = pathname.startsWith('/ro')
 
     useGSAP(() => {
