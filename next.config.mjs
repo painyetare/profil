@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Disable SWC and use Babel instead
+  swcMinify: false,
+  compiler: {
+    // Remove SWC-specific options that might cause issues
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -8,11 +13,9 @@ const nextConfig = {
   },
   // Ensure mobile compatibility
   experimental: {
-    esmExternals: false
-  },
-  // Optimize for mobile
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production'
+    esmExternals: false,
+    // Disable SWC in experimental features
+    forceSwcTransforms: false
   }
 };
 
